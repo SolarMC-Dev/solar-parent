@@ -99,11 +99,11 @@
 
 	<repositories>
 		<repository>
-			<id>solar-repo-releases</id>
+			<id>solar-releases</id>
 			<url>https://mvn-repo.platinum-mc.com/releases</url>
 		</repository>
 		<repository>
-			<id>solar-repo-snapshots</id>
+			<id>solar-snapshots</id>
 			<url>https://mvn-repo.platinum-mc.com/snapshots</url>
 		</repository>
 	</repositories>
