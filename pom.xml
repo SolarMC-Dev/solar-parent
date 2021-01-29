@@ -6,7 +6,7 @@
 
 	<groupId>gg.solarmc</groupId>
 	<artifactId>solar-parent</artifactId>
-	<version>0.3.1</version>
+	<version>0.3.2</version>
 	<packaging>pom</packaging>
 
 	<properties>
@@ -98,7 +98,7 @@
 					<execution>
 						<id>attach-sources</id>
 						<goals>
-							<goal>jar</goal>
+							<goal>jar-no-fork</goal>
 						</goals>
 					</execution>
 				</executions>
