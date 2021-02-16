@@ -123,6 +123,28 @@
 		</plugins>
 	</build>
 
+	<!-- There are several preview features which are standardized in JDK 16, but still preview in 15
+		Use this profile until JDK 16 is released -->
+	<profiles>
+		<profile>
+			<id>enable-preview-features</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-compiler-plugin</artifactId>
+						<version>3.8.1</version>
+						<configuration>
+							<source>${java.version}</source>
+							<target>${java.version}</target>
+							<compilerArgs>--enable-preview</compilerArgs>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+
 	<distributionManagement>
 		<repository>
 			<id>solar-repo</id>
