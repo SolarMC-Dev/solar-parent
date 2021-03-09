@@ -11,7 +11,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<java.version>15</java.version>
+		<compiler.version>15</compiler.version>
 		<skipJavadoc>true</skipJavadoc>
 		<skipSources>true</skipSources>
 	</properties>
@@ -29,7 +29,7 @@
 					<artifactId>maven-compiler-plugin</artifactId>
 					<version>3.8.1</version>
 					<configuration>
-						<release>${java.version}</release>
+						<release>${compiler.version}</release>
 					</configuration>
 				</plugin>
 				<plugin>
@@ -134,7 +134,7 @@
 						<artifactId>maven-compiler-plugin</artifactId>
 						<version>3.8.1</version>
 						<configuration>
-							<release>${java.version}</release>
+							<release>${compiler.version}</release>
 							<compilerArgs>--enable-preview</compilerArgs>
 						</configuration>
 					</plugin>
