@@ -130,6 +130,8 @@
 				<version>3.2.0</version>
 				<configuration>
 					<skip>${solar-parent.skipJavadoc}</skip>
+					<release>${solar-parent.jdkVersion}</release>
+					<additionalOptions>--enable-preview</additionalOptions>
 				</configuration>
 				<executions>
 					<execution>
@@ -176,6 +178,16 @@
 						</plugin>
 					</plugins>
 				</pluginManagement>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-javadoc-plugin</artifactId>
+						<configuration combine.self="override">
+							<skip>${solar-parent.skipJavadoc}</skip>
+							<release>${solar-parent.jdkVersion}</release>
+						</configuration>
+					</plugin>
+				</plugins>
 			</build>
 		</profile>
 	</profiles>
