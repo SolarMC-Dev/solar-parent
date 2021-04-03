@@ -6,6 +6,7 @@
 target/
 dependency-reduced-pom.xml
 pom.xml.versionsBackup
+release.properties
 
 ### Intellij ###
 .idea/
