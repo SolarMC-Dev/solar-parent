@@ -13,6 +13,7 @@
 		<solar-parent.skipJavadoc>true</solar-parent.skipJavadoc>
 		<solar-parent.skipSources>true</solar-parent.skipSources>
 		<solar-parent.autoVersionSubmodules>true</solar-parent.autoVersionSubmodules>
+		<solar-parent.asmVersion>9.1</solar-parent.asmVersion>
 	</properties>
 
 	<scm>
@@ -91,19 +92,18 @@
 					<artifactId>maven-shade-plugin</artifactId>
 					<version>3.2.4</version>
 					<!--
-					ASM 9 adds JDK 16 support.
-					These declarations are needed until maven-shade-plugin 3.3.0 is released
+					ASM 9 adds JDK 16 support. This is needed until maven-shade-plugin 3.3.0
 					-->
 					<dependencies>
 						<dependency>
 							<groupId>org.ow2.asm</groupId>
 							<artifactId>asm</artifactId>
-							<version>9.1</version>
+							<version>${solar-parent.asmVersion}</version>
 						</dependency>
 						<dependency>
 							<groupId>org.ow2.asm</groupId>
 							<artifactId>asm-commons</artifactId>
-							<version>9.1</version>
+							<version>${solar-parent.asmVersion}</version>
 						</dependency>
 					</dependencies>
 				</plugin>
@@ -111,6 +111,19 @@
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-dependency-plugin</artifactId>
 					<version>3.1.2</version>
+					<!-- Needed until maven-dependency-plugin 3.2.0 -->
+					<dependencies>
+						<dependency>
+							<groupId>org.ow2.asm</groupId>
+							<artifactId>asm</artifactId>
+							<version>${solar-parent.asmVersion}</version>
+						</dependency>
+						<dependency>
+							<groupId>org.ow2.asm</groupId>
+							<artifactId>asm-commons</artifactId>
+							<version>${solar-parent.asmVersion}</version>
+						</dependency>
+					</dependencies>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
