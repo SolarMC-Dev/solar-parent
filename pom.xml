@@ -55,8 +55,14 @@
 					</configuration>
 					<executions>
 						<execution>
+							<id>run-integration-tests</id>
 							<goals>
 								<goal>integration-test</goal>
+							</goals>
+						</execution>
+						<execution>
+							<id>verify-integration-tests</id>
+							<goals>
 								<goal>verify</goal>
 							</goals>
 						</execution>
