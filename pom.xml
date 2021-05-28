@@ -10,6 +10,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<solar-parent.jdkVersion>16</solar-parent.jdkVersion>
+		<solar-parent.enablePreview>--enable-preview</solar-parent.enablePreview>
 		<solar-parent.skipJavadoc>true</solar-parent.skipJavadoc>
 		<solar-parent.skipSources>true</solar-parent.skipSources>
 		<solar-parent.autoVersionSubmodules>true</solar-parent.autoVersionSubmodules>
@@ -37,7 +38,7 @@
 					<version>3.8.1</version>
 					<configuration>
 						<release>${solar-parent.jdkVersion}</release>
-						<compilerArgs>--enable-preview</compilerArgs>
+						<compilerArgs>${solar-parent.enablePreview}</compilerArgs>
 					</configuration>
 				</plugin>
 				<plugin>
@@ -50,7 +51,7 @@
 					<artifactId>maven-failsafe-plugin</artifactId>
 					<version>3.0.0-M5</version>
 					<configuration>
-						<argLine>-XX:TieredStopAtLevel=1 -XX:-TieredCompilation --enable-preview</argLine>
+						<argLine>-XX:TieredStopAtLevel=1 -XX:-TieredCompilation ${solar-parent.enablePreview}</argLine>
 						<trimStackTrace>false</trimStackTrace>
 					</configuration>
 					<executions>
@@ -86,7 +87,7 @@
 					<artifactId>maven-surefire-plugin</artifactId>
 					<version>3.0.0-M5</version>
 					<configuration>
-						<argLine>-XX:TieredStopAtLevel=1 -XX:-TieredCompilation --enable-preview</argLine>
+						<argLine>-XX:TieredStopAtLevel=1 -XX:-TieredCompilation ${solar-parent.enablePreview}</argLine>
 						<trimStackTrace>false</trimStackTrace>
 					</configuration>
 				</plugin>
@@ -224,7 +225,7 @@
 				<configuration>
 					<skip>${solar-parent.skipJavadoc}</skip>
 					<release>${solar-parent.jdkVersion}</release>
-					<additionalOptions>--enable-preview</additionalOptions>
+					<additionalOptions>${solar-parent.enablePreview}</additionalOptions>
 				</configuration>
 				<executions>
 					<execution>
@@ -237,52 +238,6 @@
 			</plugin>
 		</plugins>
 	</build>
-
-	<!-- Disable preview features -->
-	<profiles>
-		<profile>
-			<id>disable-preview-features</id>
-			<build>
-				<pluginManagement>
-					<plugins>
-						<plugin>
-							<groupId>org.apache.maven.plugins</groupId>
-							<artifactId>maven-compiler-plugin</artifactId>
-							<configuration combine.self="override">
-								<release>${solar-parent.jdkVersion}</release>
-							</configuration>
-						</plugin>
-						<plugin>
-							<groupId>org.apache.maven.plugins</groupId>
-							<artifactId>maven-surefire-plugin</artifactId>
-							<configuration combine.self="override">
-								<argLine>-XX:TieredStopAtLevel=1 -XX:-TieredCompilation</argLine>
-								<trimStackTrace>false</trimStackTrace>
-							</configuration>
-						</plugin>
-						<plugin>
-							<groupId>org.apache.maven.plugins</groupId>
-							<artifactId>maven-failsafe-plugin</artifactId>
-							<configuration combine.self="override">
-								<argLine>-XX:TieredStopAtLevel=1 -XX:-TieredCompilation</argLine>
-								<trimStackTrace>false</trimStackTrace>
-							</configuration>
-						</plugin>
-					</plugins>
-				</pluginManagement>
-				<plugins>
-					<plugin>
-						<groupId>org.apache.maven.plugins</groupId>
-						<artifactId>maven-javadoc-plugin</artifactId>
-						<configuration combine.self="override">
-							<skip>${solar-parent.skipJavadoc}</skip>
-							<release>${solar-parent.jdkVersion}</release>
-						</configuration>
-					</plugin>
-				</plugins>
-			</build>
-		</profile>
-	</profiles>
 
 	<distributionManagement>
 		<repository>
