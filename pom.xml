@@ -250,6 +250,17 @@
 		</snapshotRepository>
 	</distributionManagement>
 
+	<pluginRepositories>
+		<pluginRepository>
+			<id>solar-releases</id>
+			<url>https://mvn-repo.platinum-mc.com/releases</url>
+		</pluginRepository>
+		<pluginRepository>
+			<id>solar-snapshots</id>
+			<url>https://mvn-repo.platinum-mc.com/snapshots</url>
+		</pluginRepository>
+	</pluginRepositories>
+
 	<repositories>
 		<repository>
 			<id>solar-releases</id>
