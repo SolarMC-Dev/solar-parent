@@ -11,8 +11,8 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<solar-parent.jdkVersion>16</solar-parent.jdkVersion>
 		<solar-parent.enablePreview>--enable-preview</solar-parent.enablePreview>
-		<solar-parent.skipJavadoc>true</solar-parent.skipJavadoc>
-		<solar-parent.skipSources>true</solar-parent.skipSources>
+		<solar-parent.skipJavadoc>false</solar-parent.skipJavadoc>
+		<solar-parent.skipSources>false</solar-parent.skipSources>
 		<solar-parent.autoVersionSubmodules>true</solar-parent.autoVersionSubmodules>
 		<solar-parent.asmVersion>9.1</solar-parent.asmVersion>
 
