@@ -16,10 +16,14 @@ Available properties. Defaults are reasonable and may be overridden in `<propert
 
 ### Changelog
 
+0.6.1
+
+* Changed repository URLs to mvn-repo.solarmc.gg
+
 0.6.0
 
-* Preview features now enabled by default.
-* Javadocs and sources now enabeld by default.
+* Preview features now disabled by default.
+* Javadocs and sources now enabled by default.
 
 0.5.8
 
