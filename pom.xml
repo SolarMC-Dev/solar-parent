@@ -225,7 +225,7 @@
 				<configuration>
 					<skip>${solar-parent.skipJavadoc}</skip>
 					<release>${solar-parent.jdkVersion}</release>
-					<additionalOptions>${solar-parent.enablePreview}</additionalOptions>
+					<additionalOptions>${solar-parent.enablePreview} -tag "apiNote:a:API Note:" -tag "implSpec:a:Implementation Requirements:" -tag "implNote:a:Implementation Note:"</additionalOptions>
 				</configuration>
 				<executions>
 					<execution>
