@@ -16,6 +16,10 @@ Available properties. Defaults are reasonable and may be overridden in `<propert
 
 ### Changelog
 
+0.6.2
+
+* Enable apiNote, implSpec, and implNote javadoc tags
+
 0.6.1
 
 * Changed repository URLs to mvn-repo.solarmc.gg
