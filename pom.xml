@@ -4,19 +4,19 @@
 
 	<groupId>gg.solarmc</groupId>
 	<artifactId>solar-parent</artifactId>
-	<version>0.6.3-SNAPSHOT</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<solar-parent.jdkVersion>16</solar-parent.jdkVersion>
-		<solar-parent.enablePreview />
-		<solar-parent.skipJavadoc>false</solar-parent.skipJavadoc>
-		<solar-parent.skipSources>false</solar-parent.skipSources>
-		<solar-parent.autoVersionSubmodules>true</solar-parent.autoVersionSubmodules>
-		<solar-parent.asmVersion>9.1</solar-parent.asmVersion>
+		<solar-parent.jdk-version>16</solar-parent.jdk-version>
+		<solar-parent.enable-preview />
+		<solar-parent.skip-javadoc>false</solar-parent.skip-javadoc>
+		<solar-parent.skip-sources>false</solar-parent.skip-sources>
+		<solar-parent.auto-version-submodules>true</solar-parent.auto-version-submodules>
+		<solar-parent.asm-version>9.1</solar-parent.asm-version>
 
-		<maven.compiler.release>${solar-parent.jdkVersion}</maven.compiler.release>
+		<maven.compiler.release>${solar-parent.jdk-version}</maven.compiler.release>
 	</properties>
 
 	<scm>
@@ -37,8 +37,8 @@
 					<artifactId>maven-compiler-plugin</artifactId>
 					<version>3.8.1</version>
 					<configuration>
-						<release>${solar-parent.jdkVersion}</release>
-						<compilerArgs>${solar-parent.enablePreview}</compilerArgs>
+						<release>${solar-parent.jdk-version}</release>
+						<compilerArgs>${solar-parent.enable-preview}</compilerArgs>
 					</configuration>
 				</plugin>
 				<plugin>
@@ -51,7 +51,7 @@
 					<artifactId>maven-failsafe-plugin</artifactId>
 					<version>3.0.0-M5</version>
 					<configuration>
-						<argLine>-XX:TieredStopAtLevel=1 -XX:-TieredCompilation ${solar-parent.enablePreview}</argLine>
+						<argLine>-XX:TieredStopAtLevel=1 -XX:-TieredCompilation ${solar-parent.enable-preview}</argLine>
 						<trimStackTrace>false</trimStackTrace>
 					</configuration>
 					<executions>
@@ -87,7 +87,7 @@
 					<artifactId>maven-surefire-plugin</artifactId>
 					<version>3.0.0-M5</version>
 					<configuration>
-						<argLine>-XX:TieredStopAtLevel=1 -XX:-TieredCompilation ${solar-parent.enablePreview}</argLine>
+						<argLine>-XX:TieredStopAtLevel=1 -XX:-TieredCompilation ${solar-parent.enable-preview}</argLine>
 						<trimStackTrace>false</trimStackTrace>
 					</configuration>
 				</plugin>
@@ -107,12 +107,12 @@
 						<dependency>
 							<groupId>org.ow2.asm</groupId>
 							<artifactId>asm</artifactId>
-							<version>${solar-parent.asmVersion}</version>
+							<version>${solar-parent.asm-version}</version>
 						</dependency>
 						<dependency>
 							<groupId>org.ow2.asm</groupId>
 							<artifactId>asm-commons</artifactId>
-							<version>${solar-parent.asmVersion}</version>
+							<version>${solar-parent.asm-version}</version>
 						</dependency>
 					</dependencies>
 				</plugin>
@@ -139,12 +139,12 @@
 						<dependency>
 							<groupId>org.ow2.asm</groupId>
 							<artifactId>asm</artifactId>
-							<version>${solar-parent.asmVersion}</version>
+							<version>${solar-parent.asm-version}</version>
 						</dependency>
 						<dependency>
 							<groupId>org.ow2.asm</groupId>
 							<artifactId>asm-commons</artifactId>
-							<version>${solar-parent.asmVersion}</version>
+							<version>${solar-parent.asm-version}</version>
 						</dependency>
 					</dependencies>
 				</plugin>
@@ -190,7 +190,7 @@
 					<artifactId>maven-release-plugin</artifactId>
 					<version>3.0.0-M1</version>
 					<configuration>
-						<autoVersionSubmodules>${solar-parent.autoVersionSubmodules}</autoVersionSubmodules>
+						<autoVersionSubmodules>${solar-parent.auto-version-submodules}</autoVersionSubmodules>
 						<tagNameFormat>@{project.version}</tagNameFormat>
 					</configuration>
 				</plugin>
@@ -207,7 +207,7 @@
 				<artifactId>maven-source-plugin</artifactId>
 				<version>3.2.0</version>
 				<configuration>
-					<skipSource>${solar-parent.skipSources}</skipSource>
+					<skipSource>${solar-parent.skip-sources}</skipSource>
 				</configuration>
 				<executions>
 					<execution>
@@ -223,9 +223,9 @@
 				<artifactId>maven-javadoc-plugin</artifactId>
 				<version>3.2.0</version>
 				<configuration>
-					<skip>${solar-parent.skipJavadoc}</skip>
-					<release>${solar-parent.jdkVersion}</release>
-					<additionalOptions>${solar-parent.enablePreview} -tag "apiNote:a:API Note:" -tag "implSpec:a:Implementation Requirements:" -tag "implNote:a:Implementation Note:"</additionalOptions>
+					<skip>${solar-parent.skip-javadoc}</skip>
+					<release>${solar-parent.jdk-version}</release>
+					<additionalOptions>${solar-parent.enable-preview} -tag "apiNote:a:API Note:" -tag "implSpec:a:Implementation Requirements:" -tag "implNote:a:Implementation Note:"</additionalOptions>
 				</configuration>
 				<executions>
 					<execution>
