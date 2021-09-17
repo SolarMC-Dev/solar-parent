@@ -192,6 +192,7 @@
 					<configuration>
 						<autoVersionSubmodules>${solar-parent.auto-version-submodules}</autoVersionSubmodules>
 						<tagNameFormat>@{project.version}</tagNameFormat>
+						<preparationGoals>--quiet help:help</preparationGoals>
 					</configuration>
 				</plugin>
 				<plugin>

@@ -19,6 +19,7 @@ Available properties. Defaults are reasonable and may be overridden in `<propert
 1.0.0
 
 * Normalized properties to use `kebab-case`. Prior to this release, the properties followed a format using "solar-parent." followed by the property name in lowerCamelCase, for example, `solar-parent.jdkVersion`.
+* Set the preparationGoals of the maven-release-plugin to a no-op goal. This reflects the expectation that releases are performed automatically by a CI server. For deployment by hand, it is suggested to reset the preparationGoals setting to "clean verify". In most cases the release process should be transferred to the responsibility of the automatons.
 
 0.6.2
 
