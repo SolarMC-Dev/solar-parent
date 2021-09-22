@@ -9,12 +9,12 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<solar-parent.jdk-version>16</solar-parent.jdk-version>
+		<solar-parent.jdk-version>17</solar-parent.jdk-version>
 		<solar-parent.enable-preview />
 		<solar-parent.skip-javadoc>false</solar-parent.skip-javadoc>
 		<solar-parent.skip-sources>false</solar-parent.skip-sources>
 		<solar-parent.auto-version-submodules>true</solar-parent.auto-version-submodules>
-		<solar-parent.asm-version>9.1</solar-parent.asm-version>
+		<solar-parent.asm-version>9.2</solar-parent.asm-version>
 
 		<maven.compiler.release>${solar-parent.jdk-version}</maven.compiler.release>
 	</properties>
@@ -100,9 +100,7 @@
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-shade-plugin</artifactId>
 					<version>3.2.4</version>
-					<!--
-					ASM 9 adds JDK 16 support. This is needed until maven-shade-plugin 3.3.0
-					-->
+					<!-- ASM re-declaration needed until maven-shade-plugin 3.3.0 -->
 					<dependencies>
 						<dependency>
 							<groupId>org.ow2.asm</groupId>
@@ -133,25 +131,12 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-dependency-plugin</artifactId>
-					<version>3.1.2</version>
-					<!-- Needed until maven-dependency-plugin 3.2.0 -->
-					<dependencies>
-						<dependency>
-							<groupId>org.ow2.asm</groupId>
-							<artifactId>asm</artifactId>
-							<version>${solar-parent.asm-version}</version>
-						</dependency>
-						<dependency>
-							<groupId>org.ow2.asm</groupId>
-							<artifactId>asm-commons</artifactId>
-							<version>${solar-parent.asm-version}</version>
-						</dependency>
-					</dependencies>
+					<version>3.2.0</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-enforcer-plugin</artifactId>
-					<version>3.0.0-M3</version>
+					<version>3.0.0</version>
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
@@ -188,7 +173,7 @@
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-release-plugin</artifactId>
-					<version>3.0.0-M1</version>
+					<version>3.0.0-M4</version>
 					<configuration>
 						<autoVersionSubmodules>${solar-parent.auto-version-submodules}</autoVersionSubmodules>
 						<tagNameFormat>@{project.version}</tagNameFormat>
@@ -222,7 +207,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
-				<version>3.2.0</version>
+				<version>3.3.1</version>
 				<configuration>
 					<skip>${solar-parent.skip-javadoc}</skip>
 					<release>${solar-parent.jdk-version}</release>
