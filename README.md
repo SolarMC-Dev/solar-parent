@@ -14,13 +14,30 @@ Available properties. Defaults are reasonable and may be overridden in `<propert
 * `solar-parent.auto-version-submodules` controls maven-release-plugin's autoVersionSubmodules, true by default.
 * `solar-parent.asm-version` - Sets the ASM version used in several places. Important for JDK updates.
 
+### Requirements
+
+1. State license in pom and during deployment.
+  * Accepted licenses are Affero GPL v3, Lesser GPL v3, and private/closed-source.
+  * Child poms should declare a `<licenses>` attribute and include the license they use. 
+  * During deployment, one of three profiles must be activated: `deploy-affero-gpl3`, `deploy-lesser-gpl3` or `deploy-internal`.
+2. Avoid the use of third-party repositories. 
+  * It is recommended to keep the repositories used to Maven Central and the SolarMC repository.
+  * Most child poms should comply with this restriction.
+  * If absolutely necessary, this restriction can be bypassed by configuring `<phase>none</phase>` for the maven-enforcer goal with id `<id>enforce-organization-repositories</id>`.
+3. Deploy via "continuous delivery," such that the build server runs the entire build and verifies success before deploying. In most cases the release process should be the responsibility of the automatons.
+  * Usually requires SCM configuration.
+  * This expectation is realized in the configuration of the maven-release-plugin, which is suited for the expected release workflow: configure SCM, run `mvn release:prepare release:clean`, and the build server automatically builds and deploys the release version.
+  * In the rare case that manual deployment is necessary, configure the `preparationGoals` of the maven-release-plugin to "clean verify". Then configure SCM and use `mvn release:prepare release:perform`.
+
 ### Changelog
 
 1.0.0
 
 * Updated to JDK 17 by default
-* Normalized properties to use `kebab-case`. Prior to this release, the properties followed a format using "solar-parent." followed by the property name in lowerCamelCase, for example, `solar-parent.jdkVersion`.
-* Set the preparationGoals of the maven-release-plugin to a no-op goal. This reflects the expectation that releases are performed automatically by a CI server. For deployment by hand, it is suggested to reset the preparationGoals setting to "clean verify". In most cases the release process should be transferred to the responsibility of the automatons.
+* Require better licensing practice from child poms.  Added 3 deployment-related profiles for each 3 licenses.
+* Restrict the use of third-party repositories by default.
+* Normalized properties to use `kebab-case`. Prior to this release, the properties used lowerCamelCase after the period, for example, `solar-parent.jdkVersion`.
+* Set the preparationGoals of the maven-release-plugin to a no-op goal. This reflects the expectation that releases are performed automatically by a CI server.
 * Updated plugin versions
 
 0.6.2

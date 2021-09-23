@@ -135,11 +135,6 @@
 				</plugin>
 				<plugin>
 					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-enforcer-plugin</artifactId>
-					<version>3.0.0</version>
-				</plugin>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
 					<artifactId>maven-invoker-plugin</artifactId>
 					<version>3.2.2</version>
 					<executions>
@@ -222,39 +217,89 @@
 					</execution>
 				</executions>
 			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-enforcer-plugin</artifactId>
+				<version>3.0.0</version>
+				<executions>
+					<execution>
+						<id>enforce-organization-repositories</id>
+						<goals>
+							<goal>enforce</goal>
+						</goals>
+						<configuration>
+							<rules>
+								<requireNoRepositories>
+									<allowedRepositories>solar-repo</allowedRepositories>
+									<allowedPluginRepositories>solar-repo</allowedPluginRepositories>
+									<message>_
+										Most of the time, third-party repositories should not be declared.
+										Reliable third-party repositories may be proxied by our own repository manager.
+										Also, some forked dependencies are deployed to our own repository under different group is.
+									</message>
+								</requireNoRepositories>
+							</rules>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 
-	<distributionManagement>
-		<repository>
-			<id>solar-repo</id>
-			<url>https://mvn-repo.solarmc.gg/releases</url>
-		</repository>
-		<snapshotRepository>
-			<id>solar-repo</id>
-			<url>https://mvn-repo.solarmc.gg/snapshots</url>
-		</snapshotRepository>
-	</distributionManagement>
+	<!-- Child poms must select and use one of these profiles -->
+	<profiles>
+		<profile>
+			<id>deploy-affero-gpl3</id>
+			<distributionManagement>
+				<repository>
+					<id>solar-repo</id>
+					<url>https://maven.cloudsmith.io/solarmc/oss-affero-gpl3</url>
+				</repository>
+				<snapshotRepository>
+					<id>solar-repo</id>
+					<url>https://maven.cloudsmith.io/solarmc/oss-affero-gpl3</url>
+				</snapshotRepository>
+			</distributionManagement>
+		</profile>
+		<profile>
+			<id>deploy-lesser-gpl3</id>
+			<distributionManagement>
+				<repository>
+					<id>solar-repo</id>
+					<url>https://maven.cloudsmith.io/solarmc/oss-lesser-gpl3</url>
+				</repository>
+				<snapshotRepository>
+					<id>solar-repo</id>
+					<url>https://maven.cloudsmith.io/solarmc/oss-lesser-gpl3</url>
+				</snapshotRepository>
+			</distributionManagement>
+		</profile>
+		<profile>
+			<id>deploy-internal</id>
+			<distributionManagement>
+				<repository>
+					<id>solar-repo</id>
+					<url>https://maven.cloudsmith.io/solarmc/internal</url>
+				</repository>
+				<snapshotRepository>
+					<id>solar-repo</id>
+					<url>https://maven.cloudsmith.io/solarmc/internal</url>
+				</snapshotRepository>
+			</distributionManagement>
+		</profile>
+	</profiles>
 
 	<pluginRepositories>
 		<pluginRepository>
-			<id>solar-releases</id>
-			<url>https://mvn-repo.solarmc.gg/releases</url>
-		</pluginRepository>
-		<pluginRepository>
-			<id>solar-snapshots</id>
-			<url>https://mvn-repo.solarmc.gg/snapshots</url>
+			<id>solar-repo</id>
+			<url>https://repo.solarmc.gg/mvn</url>
 		</pluginRepository>
 	</pluginRepositories>
 
 	<repositories>
 		<repository>
-			<id>solar-releases</id>
-			<url>https://mvn-repo.solarmc.gg/releases</url>
-		</repository>
-		<repository>
-			<id>solar-snapshots</id>
-			<url>https://mvn-repo.solarmc.gg/snapshots</url>
+			<id>solar-repo</id>
+			<url>https://repo.solarmc.gg/mvn</url>
 		</repository>
 	</repositories>
 </project>
