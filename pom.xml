@@ -4,7 +4,7 @@
 
 	<groupId>gg.solarmc</groupId>
 	<artifactId>solar-parent</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<properties>
@@ -21,7 +21,7 @@
 
 	<scm>
 		<developerConnection>scm:git:https://github.com/SolarMC-Dev/solar-parent.git</developerConnection>
-	  <tag>1.0.0</tag>
+	  <tag>0.5.3</tag>
   </scm>
 
 	<build>
