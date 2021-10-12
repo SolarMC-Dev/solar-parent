@@ -29,6 +29,15 @@ Available properties. Defaults are reasonable and may be overridden in `<propert
   * This expectation is realized in the configuration of the maven-release-plugin, which is suited for the expected release workflow: configure SCM, run `mvn release:prepare release:clean`, and the build server automatically builds and deploys the release version.
   * In the rare case that manual deployment is necessary, configure the `preparationGoals` of the maven-release-plugin to "clean verify". Then configure SCM and use `mvn release:prepare release:perform`.
 
+### Semver Meaning
+
+Since this is not software written in an imperative programming language with a clear concept of an API, solar-parent follows a certain meaning to
+its versioning:
+
+* **Major** versions are for breaking changes; that is, changes which remove or alter functionality of existing stable configurations.
+* **Patch** versions are either invisible improvements or bug-fixes to correct unintended or unspecified behavior. These are very rare since Maven is declarative.
+* **Minor** versions are for everything in between. This includes new functionality and configuration options. It also includes feature additions like plugin updates. Since most builds are stable and do not rely on deprecated plugin features, solar-parent may upgrade maven plugins in minor versions. It is therefore possible, but unlikely, for minor versions to truly break a build.
+
 ### Changelog
 
 1.0.0
