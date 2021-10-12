@@ -262,6 +262,19 @@
 			</distributionManagement>
 		</profile>
 		<profile>
+			<id>deploy-gpl3</id>
+			<distributionManagement>
+				<repository>
+					<id>solar-repo</id>
+					<url>https://maven.cloudsmith.io/solarmc/oss-gpl3</url>
+				</repository>
+				<snapshotRepository>
+					<id>solar-repo</id>
+					<url>https://maven.cloudsmith.io/solarmc/oss-gpl3</url>
+				</snapshotRepository>
+			</distributionManagement>
+		</profile>
+		<profile>
 			<id>deploy-lesser-gpl3</id>
 			<distributionManagement>
 				<repository>

@@ -17,9 +17,9 @@ Available properties. Defaults are reasonable and may be overridden in `<propert
 ### Requirements
 
 1. State license in pom and during deployment.
-  * Accepted licenses are Affero GPL v3, Lesser GPL v3, and private/closed-source.
+  * Accepted licenses are Affero GPL v3, GPL v3, Lesser GPL v3, and private/closed-source.
   * Child poms should declare a `<licenses>` attribute and include the license they use. 
-  * During deployment, one of three profiles must be activated: `deploy-affero-gpl3`, `deploy-lesser-gpl3` or `deploy-internal`.
+  * During deployment, one of the following profiles must be activated: `deploy-affero-gpl3`, `deploy-gpl3`, `deploy-lesser-gpl3` or `deploy-internal`.
 2. Avoid the use of third-party repositories. 
   * It is recommended to keep the repositories used to Maven Central and the SolarMC repository.
   * Most child poms should comply with this restriction.
