@@ -302,13 +302,6 @@
 		</profile>
 	</profiles>
 
-	<pluginRepositories>
-		<pluginRepository>
-			<id>solar-repo</id>
-			<url>https://repo.solarmc.gg/mvn</url>
-		</pluginRepository>
-	</pluginRepositories>
-
 	<repositories>
 		<repository>
 			<id>solar-repo</id>

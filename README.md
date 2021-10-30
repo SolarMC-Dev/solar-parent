@@ -40,6 +40,14 @@ its versioning:
 
 ### Changelog
 
+1.1.1
+
+* Removed solar-repo as pluginRepository since it is no longer needed
+
+1.1.0
+
+* Added oss-gpl3 deployment profile which deploys under the GNU General Public License v3 or later
+
 1.0.0
 
 * Updated to JDK 17 by default
